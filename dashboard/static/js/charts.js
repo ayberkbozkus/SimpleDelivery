@@ -33,11 +33,11 @@ setInterval(function () {
 
 
 //let barChart1 = document.getElementById('barChart1').getContext('2d');
-let pieChart1 = document.getElementById('pieChart1').getContext('2d');
+//let pieChart1 = document.getElementById('pieChart1').getContext('2d');
 
-Chart.defaults.global.defaultFontFamily = 'Arial';
-Chart.defaults.global.defaultFontSize = 10;
-Chart.defaults.global.defaultFontColor = '#000';
+//Chart.defaults.global.defaultFontFamily = 'Arial';
+//Chart.defaults.global.defaultFontSize = 10;
+//Chart.defaults.global.defaultFontColor = '#000';
 
 /*let derece = new Chart(barChart1, {
     type: 'horizontalBar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
@@ -92,7 +92,7 @@ new Chart(document.getElementById("line-chart"), {
     labels: ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
     datasets: [{
         data: [86,114,149,72,221,97,133],
-        label: "Kilometre",
+        label: "Dağıtımda katedilen toplam mesafe (Km)",
         borderColor: "#3e95cd",
         fill: false
       },
@@ -132,7 +132,7 @@ new Chart(document.getElementById("radar-chart"), {
       labels: ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
       datasets: [
         {
-          label: "Yerleşik",
+          label: "Olumlu",
           fill: true,
           backgroundColor: "rgba(86, 247, 114,0.2)",
           borderColor: "rgba(86, 247, 114,1)",
@@ -140,7 +140,7 @@ new Chart(document.getElementById("radar-chart"), {
           pointBackgroundColor: "rgba(86, 247, 114,1)",
           data: [23,42,11,31,42,17,52]
         }, {
-          label: "Diğer",
+          label: "Olumsuz",
           fill: true,
           backgroundColor: "rgba(255,99,132,0.2)",
           borderColor: "rgba(255,99,132,1)",
@@ -154,7 +154,7 @@ new Chart(document.getElementById("radar-chart"), {
     options: {
       title: {
         display: true,
-        text: 'İlçe Nüfus Hareket Oranı'
+        text: 'Günlük Müşteri Yorum Dağılımı'
       }
     }
 });
@@ -172,7 +172,7 @@ new Chart(document.getElementById("pie-chart"), {
     options: {
       title: {
         display: true,
-        text: 'Son Bir Haftada Bulunulan İlçeler(Saat)'
+        text: 'Son Bir Haftada En Çok Dağıtım Yapılan İlçeler'
       }
     }
 });
@@ -202,7 +202,7 @@ new Chart(document.getElementById("bar-chart-grouped"), {
       labels: ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
       datasets: [
         {
-          label: "Kaşılaşılan Kişi",
+          label: "Ulaştırılamamış/Hatalı Dağıtım Adedi",
           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#ff0000","#f0ad4e"],
           data: [12,4,6,11,5,6,9,0]
         }
@@ -211,7 +211,7 @@ new Chart(document.getElementById("bar-chart-grouped"), {
     options: {
       title: {
         display: true,
-        text: 'Haftalık Karşılaşılan İnsan Sayısı (50m)'
+        text: 'Haftalık Operasyonel Olay Tablosu'
       }
     }
 });

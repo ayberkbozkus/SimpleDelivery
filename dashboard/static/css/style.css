@@ -510,14 +510,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-
 .rounded-rect {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 50px -25px black;
-}
-
-.rounded-rect1 {
     border-radius: 10px;
     box-shadow: 0 0 50px -25px black;
 }

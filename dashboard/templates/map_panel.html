@@ -239,8 +239,10 @@
                 </div>
             </div>
             <div class="sidbear-toggle rounded-rect left" onclick="toggleSidebar('left')">
+                
                 <div class="container" onclick="myFunction(this)">
                     <div class="bar1"> +</div>
+                    
                 </div>
             </div>
         </div>
@@ -924,12 +926,15 @@
                   <div class="row">
                       <div class="column" style="width: 50% !important;">
                           <div class="card" style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);padding-left: 23px;width: 350px !important;height: 320px !important;">
-                            <div style="width:300px; height: 300px;" > <div style="width:300px; height: 300px;" id="radarDiv" > </div> </div>
+                            <div style="width:300px; height: 300px;" >
+                                <canvas id="radar-chart" width="300" height="300"></canvas>  
+                            </div>
                           </div>
                       </div>
                       <div class="column" style="width: 50% !important;">
                           <div class="card" style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);padding-left: 23px;width: 350px !important;height: 320px !important;">
-                            <div style="width:300px; height: 300px;margin-top:-10px;" > <canvas id="pie-chart" width="300" height="300"></canvas> </div> </div>
+                            <div style="width:300px; height: 300px;margin-top:-10px;" > <canvas id="pie-chart" width="300" height="300"></canvas> </div>
+                          </div>
                           </div>
                       </div>
                   </div>
