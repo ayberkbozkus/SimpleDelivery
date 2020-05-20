@@ -38,14 +38,12 @@ function generalInfo() {
     var gi_url = 'http://160.75.154.58:5000/generalinfo';
     var gi_info = JSON.parse(Get(gi_url));
 
-    iconcolor(gi_info.current_sick, "currentSick", "divcurrentSick", 50, 300);
-    noticoncolor(gi_info.current_healthy, "currentHealthy", "divcurrentHealthy", 30, 60);
-    iconcolor(gi_info.current_risk, "currentRisk", "divcurrentRisk", 0.5, 0.6);
-    iconcolor(6.3, "riskPoint", "divriskPoint", 3, 7);  // iconcolor(gi_info.risk_point,"riskPoint","divriskPoint",150,180);
-    noticoncolor(gi_info.people_at_home, "peopleHome", "divpeopleHome", 150, 180);
-    iconcolor(321, "riskZone", "divriskZone", 150, 180);  // iconcolor(gi_info.risk_zone,"riskZone","divriskZone",150,180);
-    iconcolor(32, "totalAge", "divtotalAge", 30, 60);  // iconcolor(gi_info.tatal_age,"totalAge","divtotalAge",150,180);
-    iconcolor(21784, "totalMovement", "divtotalMovement", 150, 180);  // iconcolor(gi_info.total_movement,"totalMovement","divtotalMovement",150,180);
+    iconcolor(gi_info.current_sick, "dailyTotalCargo", "divdailyTotalCargo", 50, 300);
+    noticoncolor(gi_info.current_healthy, "totalSuccessRate", "divtotalSuccessRate", 30, 60);
+    iconcolor(gi_info.current_risk, "mostCargo", "divmostCargo", 0.5, 0.6);
+    iconcolor(6.3, "cargoAverange", "divcargoAverange", 3, 7);  // iconcolor(gi_info.risk_point,"riskPoint","divriskPoint",150,180);
+    noticoncolor(gi_info.people_at_home, "branchSuccess", "divbranchSuccess", 150, 180);
+    iconcolor(321, "activeTruck", "divactiveTruck", 150, 180);  // iconcolor(gi_info.risk_zone,"riskZone","divriskZone",150,180);
 
 //    iconcolor(gi_info.active_user,"activeUser","divactiveUser",30,60);
 //    iconcolor(gi_info.data_in_last_hour,"lastHourData","divlastHourData",37,38.5);

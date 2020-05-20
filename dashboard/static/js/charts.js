@@ -331,14 +331,12 @@ function searchFunction(userno) {
     var ud_url = 'http://160.75.154.58:5000/user_descriptive?uid=' + ppid;
     var all_info = JSON.parse(Get(ud_url));
 
-    ikoncolor(all_info.age, "personAge", "divpersonAge", 30, 60);
-    ikoncolor(all_info.fever_days, "personFeverDays", "divpersonFeverDays", 5, 10);
-    ikoncolor(all_info.is_sick, "personIsSick", "divpersonIsSick", 0.5, 0.6);
-    ikoncolor(all_info.last_fever_date, "personLastFeverDate", "divpersonLastFeverDate", 3, 1);
-    ikoncolor(all_info.last_temp, "personLastTemp", "divpersonLastTemp", 37, 38.5);
-    ikoncolor(all_info.movement, "personMovement", "divpersonMovement", 150, 180);
-    ikoncolor(all_info.risk, "personRisk", "divpersonRisk", 0.15, 0.70);
-    ikoncolor(all_info.sick_days, "personSickDays", "divpersonSickDays", 4, 10);
+    ikoncolor(all_info.age, "totalCargo", "divtotalCargo", 30, 60);
+    ikoncolor(all_info.fever_days, "totalTime", "divtotalTime", 5, 10);
+    ikoncolor(all_info.is_sick, "totalRoad", "divtotalRoad", 0.5, 0.6);
+    ikoncolor(all_info.last_fever_date, "precisionRange", "divprecisionRange", 3, 1);
+    ikoncolor(all_info.last_temp, "successRate", "divsuccessRate", 37, 38.5);
+    ikoncolor(all_info.movement, "deliveryType", "divdeliveryType", 150, 180);
 
     document.getElementById('personLastDataDate').innerHTML = 'Son veri: ' + all_info.last_date;
 
