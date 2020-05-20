@@ -273,9 +273,9 @@ let derece2 = new Chart(pieChart1,
         type: 'doughnut',
         data: {
             labels: [
-                'Sağlıklı',
-                'Risk altında',
-                'Hasta'
+                'Teslim Edilmiş',
+                'Teslim edilecek',
+                'Teslim Edilememiş'
             ],
             datasets: [{
                 data: [derece2data.current_healthy,
