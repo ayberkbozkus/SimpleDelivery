@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <link rel="icon" href="../static/img/favicon.svg" type="image/gif" sizes="16x16">
+    <meta charset="utf-8"/>
+    <title>Kortsis Harita</title>
+    <meta name="author" content="Ayberk Bozkuş, Levent Güner, Cavit Özbay">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="../static/js/plotly.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet"/>
+    <link href="../static/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/css/bootstrap-slider.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/bootstrap-slider.js"></script>
+
+</head>
+<body>
+<div id="map">
+    <div id="left" class="sidebar flex-center left collapsed">
+        <div style="background-color: #ffffff3d; backdrop-filter: blur(5px);"
+             class="sidebar-content rounded-rect flex-center sidebarleft">
+            <div class='rows labels'>
+                <div>
+                    <div class="menuHeader">
+                        <img src="../static/img/ituLogo.png" alt="logo" width="100px" class="ituLogoLeft">
+                        <button class="btn" onclick="openCity('content1')"><img src="../static/img/person.svg"
+                                                                                alt="piechart"></button>
+                        <button class="btn" onclick="openCity('content2')"><img src="../static/img/layers-24px.svg"
+                                                                                alt="layers"></button>
+
+
+                    </div>
+                </div>
+                <div id="content1" style="width:350px;" class="w3-container city">
+                    <div class="contentBody">
+                        <div class="searchPerson" style="width:300px;margin-top:10px;">
+                            <input class="searchText" type="text" style="width:100px;" id="searchPerson"
+                                   placeholder="Userid">
+                            <button onclick="searchFunction()">Ara</button>
+                            <button id="allUsers" onclick="returntoAllUsers()">Tüm Kullanıcılar</button>
+                        </div>
+
+                        <div style="width:330px; height: 230px;" id="predDivPl"></div>
+
+                        <div class="container rightRow containerMargin" style="height: 100%">
+                            <p id="personLastDataDate"></p>
+                            <div class="row">
+                                <div class="column">
+
+                                    <div href="#myModalPerson" class="card btn btn-settings" data-backdrop="false" data-toggle="modal" style="background-color: rgba(33, 150, 243,0.2);border-width: 3px;border-color:rgb(33, 150, 243); height: 50px; width: 290px;">
+
+                                        <h2 style="margin: -2px;color:#333;font-weight: bold;" class="card-header">Kişi Bazlı Derin Analiz</h2>
+                                        <p class="card-header"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <div id="divpersonAge" class="card"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/personAge.svg" alt="hasta" width="50"
+                                             height="50">
+                                        <h2 class="card-header">Yaş</h2>
+                                        <p class="card-header" id="personAge"></p>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div id="divpersonFeverDays" class="card"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img src="../static/img/personFeverDays.svg" class="cardIkon" alt="hasta">
+                                        <h2 class="card-header">Ateşli Olunan Gün</h2>
+                                        <p class="card-header" id="personFeverDays"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <div id="divpersonIsSick" class="card"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/personIsSick.svg" alt="hasta"
+                                             width="50" height="50">
+                                        <h2 class="card-header">Hasta mı ?</h2>
+                                        <p class="card-header" id="personIsSick"></p>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div id="divpersonLastFeverDate" class="card"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/personLastFeverDate.svg" alt="hasta"
+                                             width="50" height="50">
+                                        <h2 class="card-header">Son Ateşli Gün</h2>
+                                        <p class="card-header" id="personLastFeverDate"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <div id="divpersonLastTemp" class="card"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/personLastTemp.svg" alt="hasta"
+                                             width="50" height="50">
+                                        <h2 class="card-header">En Son Derece</h2>
+                                        <p class="card-header" id="personLastTemp"></p>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div id="divpersonMovement" class="card"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/personMovement.svg" alt="hasta"
+                                             width="50" height="50">
+                                        <h2 class="card-header">Hareket</h2>
+                                        <p class="card-header" id="personMovement"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <div id="divpersonRisk" class="card"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/personRisk.svg" alt="hasta" width="50"
+                                             height="50">
+                                        <h2 class="card-header">Risk Durumu</h2>
+                                        <p class="card-header" id="personRisk"></p>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div id="divpersonSickDays" class="card"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/personSickDays.svg" alt="hasta"
+                                             width="50" height="50">
+                                        <h2 class="card-header">Hasta Olunan Gün</h2>
+                                        <p class="card-header" id="personSickDays"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="content2" style="width:350px;" class="w3-container city">
+                    <div class="contentBody">
+                        <div class="container" style="height: 100%">
+                            <h1 class="RightMenuHeader">Risk Skalası</h1>
+                            <div class='session'>
+                                <div class='row_console colors'>
+                                </div>
+                                <div class='row_console labels'>
+                                    <div class='label' style="font-size:10px;color:rgb(119,221,119)">0</div>
+                                    <div class='label' style="font-size:10px;color:rgb(187,215,108)">%20</div>
+                                    <div class='label' style="font-size:10px;color:rgb(255,210,97)">%40</div>
+                                    <div class='label' style="font-size:10px;color:rgb(255,157,97)">%60</div>
+                                    <div class='label' style="font-size:10px;color:rgb(255,105,97)">%80</div>
+                                    <div class='label' style="font-size:10px;color:rgb(255,53,97)">%100</div>
+                                </div>
+                                <!--<div class='session' id='sliderbar'>
+                                   <h2>Saat: <label id='active-hour'>12PM</label></h2>
+                                   <input id='slider' class='row_console timeLine' type='range' min='0' max='23' step='1'
+                                      value='23'/>
+                                </div>-->
+
+
+                                <div class="shadowBG" style="height: 220px;">
+
+                                    <div>
+                                        <div style="margin-top:10px;" class="container">
+                                            <div class='DateWidth col-md-5'>
+                                                <div class="form-group">
+                                                    <div class='input-group date' id='datetimepicker6'>
+                                                        <input type='text' class="form-control"/>
+                                                        <span class="input-group-addon">
+                                                              <span class="glyphicon glyphicon-calendar"></span>
+                                                  </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class='DateWidth col-md-5'>
+                                                <div class="form-group">
+                                                    <div class='input-group date' id='datetimepicker7'>
+                                                        <input type='text' class="form-control"/>
+                                                        <span class="input-group-addon">
+                                                              <span class="glyphicon glyphicon-calendar"></span>
+                                                  </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary" href="#timeArea" data-backdrop="false"
+                                                data-toggle="modal" style="margin-top:10px;margin-bottom:10px;"
+                                                id="filterTimeRange" onclick="filterClick()"> Filtrele
+                                        </button>
+                                        <button class="btn btn-primary" style="margin-top:10px;margin-bottom:10px;back" id="reset"
+                                        onclick="resetMap()">Sıfırla
+                                        </button>
+
+
+                                    </div>
+                                </div>
+                                <div class="shadowBG">
+                                    <div id="menu2">
+                                        <label class="radio_map_style">Street
+                                            <input id="streets-v11" type="radio" checked="checked" name="radio">
+                                            <span class="checkmark2"></span>
+                                        </label>
+                                        <label class="radio_map_style">Light
+                                            <input id="light-v10" type="radio" name="radio">
+                                            <span class="checkmark2"></span>
+                                        </label>
+                                        <label class="radio_map_style">Dark
+                                            <input id="dark-v10" type="radio" name="radio">
+                                            <span class="checkmark2"></span>
+                                        </label>
+                                        <label class="radio_map_style">Outdoors
+                                            <input id="outdoors-v11" type="radio" name="radio">
+                                            <span class="checkmark2"></span>
+                                        </label>
+                                    </div>
+                                    <div id="menu">
+                                        <label class="map_changer">Heatmap
+                                            <input type="checkbox" checked="checked" onclick="controlMap(id)"
+                                                   id="temp-heat-check">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="map_changer">Points
+                                            <input type="checkbox" checked="checked" onclick="controlMap(id)"
+                                                   id="temp-point-check">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <!--<label class="map_changer">Last 24 Hours
+                                        <input type="checkbox" checked="checked" id="cumulative-checkbox"
+                                           onclick="filterForLastDay(id)">
+                                        <span class="checkmark"></span>
+                                        <button id="play" onclick="playHeatmap()">Oynat</button>
+
+                                        </label>-->
+
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidbear-toggle rounded-rect left" onclick="toggleSidebar('left')">
+                <div class="container" onclick="myFunction(this)">
+                    <div class="bar1"> +</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="right" class="sidebar flex-center right collapsed">
+        <div style="backdrop-filter: blur(7px);background-color:#ffffff3d;"
+             class="sidebar-content rounded-rect flex-center sidebarright">
+            <div class='rows labels'>
+                <div>
+                    <div class="menuHeader">
+                        <button class="btn" onclick="openRightMenu('content3')"><img src="../static/img/people.svg"
+                                                                                     alt="piechart"></button>
+                        <button class="btn" onclick="openRightMenu('content4')"><img width="24px"
+                                                                                     src="../static/img/location.svg"
+                                                                                     alt="layers"></button>
+                        <button class="btn" onclick="openRightMenu('content5')"><img src="../static/img/maps.svg"
+                                                                                     alt="city"></button>
+                        <img src="../static/img/ituLogo.png" class="ituLogoRight" alt="logo" width="100px">
+                    </div>
+                </div>
+                <div id="content3" style="width:350px; " class="w3-container rightSideBarContent">
+                    <div class="contentBody">
+                        <div class="container" style="max-width: 300px;margin-top:25px;">
+
+                        </div>
+                        <div class="container" style="max-width: 300px;">
+                            <img src="../static/img/data.svg" alt="all" class="chartImg">
+                            <canvas id="pieChart1" style="height: 400px"></canvas>
+                        </div>
+                        <div class="container containerMargin" style="height: 100%; margin-top: -15px;">
+                            <h3 style="margin-bottom: -10px;">Akıllı Filtreler</h3>
+                            <div class="row">
+                                <div class="column">
+                                    <div id="divcurrentSick" href="#myModal" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/sickNumber.svg" alt="hasta" width="50"
+                                             height="50">
+                                        <h2 class="card-header">Hasta Sayısı</h2>
+                                        <p class="card-header" id="currentSick"></p>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div id="divcurrentHealthy" href="#myModal" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img src="../static/img/healthy.svg" class="cardIkon" alt="hasta">
+                                        <h2 class="card-header">Sağlıklı Kişi Sayısı</h2>
+                                        <p class="card-header" id="currentHealthy"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <div id="divcurrentRisk" href="#myModal" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img//sick.svg" alt="hasta" width="50"
+                                             height="50">
+                                        <h2 class="card-header">Riskli Kişi Sayısı</h2>
+                                        <p class="card-header" id="currentRisk"></p>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div id="divriskPoint" href="#myModalSit" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img//personRisk.svg" alt="hasta" width="50"
+                                             height="50">
+                                        <h2 class="card-header">Risk Puanı</h2>
+                                        <p class="card-header" id="riskPoint"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <div id="divpeopleHome" href="#myModalSit" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/home.svg" alt="hasta" width="50"
+                                             height="50">
+                                        <h2 class="card-header">Evde Kalma</h2>
+                                        <p class="card-header" id="peopleHome"></p>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div id="divriskZone" href="#myModalArea" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/riskZone.svg" alt="hasta" width="50"
+                                             height="50">
+                                        <h2 class="card-header">Risk Bölgeleri</h2>
+                                        <p class="card-header" id="riskZone"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <div id="divtotalAge" href="#myModalArea" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/peopleAge.svg" alt="hasta" width="50"
+                                             height="50">
+                                        <h2 class="card-header">Yaş</h2>
+                                        <p class="card-header" id="totalAge"></p>
+                                    </div>
+                                </div>
+                                <div class="column" style="margin-bottom: 50px;">
+                                    <div id="divtotalMovement" href="#myModalSit" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/personMovement.svg" alt="hasta"
+                                             width="50" height="50">
+                                        <h2 class="card-header">Toplam Hareket</h2>
+                                        <p class="card-header" id="totalMovement"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin:50px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="content4" style="width:350px;" class="w3-container rightSideBarContent">
+                    <div class="contentBody">
+                        <div class="container" style="height: 100%">
+                            <h3>Akıllı Çevre Analizi</h3>
+                            <div class="row">
+                                <div class="column">
+                                    <div id="divnearPeople" href="#myModal" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/sickNumber.svg" alt="hasta" width="50"
+                                             height="50">
+                                        <h2 class="card-header">Yakındaki İnsan</h2>
+                                        <p class="card-header" id="nearPeople"></p>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div id="divnearstPeople" href="#myModal" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img src="../static/img/healthy.svg" class="cardIkon" alt="hasta">
+                                        <h2 class="card-header">En Yakın Kişi</h2>
+                                        <p class="card-header" id="nearstPeople"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <div id="divdangerstPeople" href="#myModal" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img//sick.svg" alt="hasta" width="50"
+                                             height="50">
+                                        <h2 class="card-header">En Riskli Kişi </h2>
+                                        <p class="card-header" id="dangerstPeople"></p>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div id="divsickstPeople" href="#myModal" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img//personRisk.svg" alt="hasta" width="50"
+                                             height="50">
+                                        <h2 class="card-header">En Hasta Kişi</h2>
+                                        <p class="card-header" id="sickstPeople"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <div id="divcircleSickPeople" href="#myModal" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/home.svg" alt="hasta" width="50"
+                                             height="50">
+                                        <h2 class="card-header ">Çevredeki Hasta</h2>
+                                        <p class="card-header" id="circleSickPeople"></p>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div id="divcircleRiskPeople" href="#myModal" class="card btn btn-settings"
+                                         data-backdrop="false" data-toggle="modal"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                        <img class="cardIkon" src="../static/img/riskZone.svg" alt="hasta" width="50"
+                                             height="50">
+                                        <h2 class="card-header">Çevredeki Riskli</h2>
+                                        <p class="card-header" id="circleRiskPeople"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 30px;">
+                            <h2 class=" contentHeader card-header " style="margin-bottom: 30px;">Çevredeki Hasta
+                                Kişi</h2>
+                            <table class="table mobileTable">
+                                <tbody>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Uzaklık</th>
+                                    <th scope="col">UserId</th>
+                                    <th scope="col">Vücut Sıcaklığı</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col">1</th>
+                                    <td>
+                                        <p class="card-header" id="person1dis"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person1id"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person1temp"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">2</th>
+                                    <td>
+                                        <p class="card-header" id="person2dis"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person2id"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person2temp"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>
+                                        <p class="card-header" id="person3dis"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person3id"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person3temp"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>
+                                        <p class="card-header" id="person4dis"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person4id"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person4temp"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>
+                                        <p class="card-header" id="person5dis"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person5id"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person5temp"></p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="content5" style="width:350px; " class="w3-container rightSideBarContent">
+                    <div class="contentBody">
+                        <div class="container containerMargin" style="height: 10px; margin-top: 5px;">
+                            <h3 style="margin-bottom: -10px;" id="townNameText"></h3>
+
+                            <h3> Bölge Haritası </h3>
+                            <!--
+                            <select id="cities" class="selectMenu">
+                                <option value="sariyer">Sarıyer</option>
+                                <option value="besiktas">Beşiktaş</option>
+                                <option value="kagithane">Kağıthane</option>
+                                <option value="eyupsultan">Eyüpsultan</option>
+                                <option value="kucukcekmece">Küçükçekmece</option>
+                                <option value="esenler">Esenler</option>
+                            </select>
+                            -->
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <div href="#myModalDepthArea" class="card btn btn-settings" data-backdrop="false" data-toggle="modal" style="background-color: rgba(33, 150, 243,0.2);border-width: 3px;border-color:rgb(33, 150, 243); height: 50px; width: 290px;">
+
+                                    <h2 style="margin: -2px;color:#333;font-weight: bold;" class="card-header">Derin Bölge Analizi</h2>
+                                    <p class="card-header"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <div id="tdivcurrentSick" href="#myModal" class="card btn btn-settings"
+                                     data-backdrop="false" data-toggle="modal"
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                    <img class="cardIkon" src="../static/img/sickNumber.svg" alt="hasta" width="50"
+                                         height="50">
+                                    <h2 class="card-header">Hasta Sayısı</h2>
+                                    <p class="card-header" id="tcurrentSick"></p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div id="tdivcurrentHealthy" href="#myModal" class="card btn btn-settings"
+                                     data-backdrop="false" data-toggle="modal"
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                    <img src="../static/img/healthy.svg" class="cardIkon" alt="hasta">
+                                    <h2 class="card-header">Sağlıklı Kişi Sayısı</h2>
+                                    <p class="card-header" id="tcurrentHealthy"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <div id="tdivcurrentRisk" href="#myModalSaglik" class="card btn btn-settings"
+                                     data-backdrop="false" data-toggle="modal"
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                    <img class="cardIkon" src="../static/img//sick.svg" alt="hasta" width="50"
+                                         height="50">
+                                    <h2 class="card-header">Riskli Kişi Sayısı</h2>
+                                    <p class="card-header" id="tcurrentRisk"></p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div id="tdivriskPoint" href="#myModalSaglik" class="card btn btn-settings"
+                                     data-backdrop="false" data-toggle="modal"
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                    <img class="cardIkon" src="../static/img//personRisk.svg" alt="hasta" width="50"
+                                         height="50">
+                                    <h2 class="card-header">Risk Puanı</h2>
+                                    <p class="card-header" id="triskPoint"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <div id="tdivpeopleHome" href="#myModalSaglik" class="card btn btn-settings"
+                                     data-backdrop="false" data-toggle="modal"
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                    <img class="cardIkon" src="../static/img/home.svg" alt="hasta" width="50"
+                                         height="50">
+                                    <h2 class="card-header">Evde Kalma</h2>
+                                    <p class="card-header" id="tpeopleHome"></p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div id="tdivriskZone" href="#myModalSaglik" class="card btn btn-settings"
+                                     data-backdrop="false" data-toggle="modal"
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                    <img class="cardIkon" src="../static/img/riskZone.svg" alt="hasta" width="50"
+                                         height="50">
+                                    <h2 class="card-header">Risk Bölgeleri</h2>
+                                    <p class="card-header" id="triskZone"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <div id="tdivtotalAge" href="#myModalSaglik" class="card btn btn-settings"
+                                     data-backdrop="false" data-toggle="modal"
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                    <img class="cardIkon" src="../static/img/peopleAge.svg" alt="hasta" width="50"
+                                         height="50">
+                                    <h2 class="card-header">Yaş</h2>
+                                    <p class="card-header" id="ttotalAge"></p>
+                                </div>
+                            </div>
+                            <div class="column" style="margin-bottom: 50px;">
+                                <div id="tdivtotalMovement" href="#myModalSaglik" class="card btn btn-settings"
+                                     data-backdrop="false" data-toggle="modal"
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                    <img class="cardIkon" src="../static/img/personMovement.svg" alt="hasta" width="50"
+                                         height="50">
+                                    <h2 class="card-header">Toplam Hareket</h2>
+                                    <p class="card-header" id="ttotalMovement"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin:50px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidbear-toggle rounded-rect right" onclick="toggleSidebar('right')">
+                <div class="container" onclick="myFunction(this)">
+                    <div class="bar1"> +</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog" style=" margin: auto;padding:20px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"> Grafik Arayüzü 1 </h4>
+            </div>
+            <div class="modal-body">
+
+                <div style="width:740px; height: 300px;" id="predDivPlBig"></div>
+                <table class="table mobileTable" style="margin-bottom:-20px;">
+                    <tbody>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Userid</th>
+                        <th scope="col">Yaş</th>
+                        <th scope="col">Vucut Sıcaklığı</th>
+                        <th scope="col">Ateşli Olunan Gün</th>
+                        <th scope="col">Haraket</th>
+                        <th scope="col">Son Bulunan İlçe</th>
+                        <th scope="col">Risk Puanı</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">1</th>
+                        <td>
+                            <p> 11 </p>
+                        </td>
+                        <td>
+                            <p> 22 </p>
+                        </td>
+                        <td>
+                            <p> 36.4 </p>
+                        </td>
+                        <td>
+                            <p> 0 </p>
+                        </td>
+                        <td>
+                            <p> 94 </p>
+                        </td>
+                        <td>
+                            <p> Kağıthane </p>
+                        </td>
+                        <td>
+                            <p> 6.4 </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col">2</th>
+                        <td>
+                            <p> 72 </p>
+                        </td>
+                        <td>
+                            <p> 34 </p>
+                        </td>
+                        <td>
+                            <p> 35.56 </p>
+                        </td>
+                        <td>
+                            <p> 0 </p>
+                        </td>
+                        <td>
+                            <p> 49 </p>
+                        </td>
+                        <td>
+                            <p> Sarıyer </p>
+                        </td>
+                        <td>
+                            <p> 4.1 </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>
+                            <p> 56 </p>
+                        </td>
+                        <td>
+                            <p> 33 </p>
+                        </td>
+                        <td>
+                            <p> 36.77 </p>
+                        </td>
+                        <td>
+                            <p> 0 </p>
+                        </td>
+                        <td>
+                            <p> 46 </p>
+                        </td>
+                        <td>
+                            <p> Şişli </p>
+                        </td>
+                        <td>
+                            <p> 3.3 </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>
+                            <p> 28 </p>
+                        </td>
+                        <td>
+                            <p> 62 </p>
+                        </td>
+                        <td>
+                            <p> 36.31 </p>
+                        </td>
+                        <td>
+                            <p> 0 </p>
+                        </td>
+                        <td>
+                            <p> 56 </p>
+                        </td>
+                        <td>
+                            <p> Kadıköy </p>
+                        </td>
+                        <td>
+                            <p> 3.8 </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>
+                            <p> 31 </p>
+                        </td>
+                        <td>
+                            <p> 40 </p>
+                        </td>
+                        <td>
+                            <p> 35.68 </p>
+                        </td>
+                        <td>
+                            <p> 0 </p>
+                        </td>
+                        <td>
+                            <p> 49 </p>
+                        </td>
+                        <td>
+                            <p> Beşiktaş </p>
+                        </td>
+                        <td>
+                            <p> 4.2 </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-------------------------------------------------------------------->
+
+<div id="myModalSit" class="modal fade">
+    <div class="modal-dialog" style=" margin: auto;padding:20px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"> Grafik Arayüzü 2</h4>
+            </div>
+            <div class="modal-body">
+
+                <div style="width:720px; height: 300px;" id="healthyHistDivPl"></div>
+                <table class="table mobileTable" style="margin-bottom:-20px;">
+                    <tbody>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">İlçe</th>
+                        <th scope="col">Evde Kalma Oranı</th>
+                        <th scope="col">Ortalama Evde Kalma Süresi</th>
+                        <th scope="col">Hasta Sayısı</th>
+                        <th scope="col">Sağlıklı Kişi</th>
+                        <th scope="col">Riskli Kişi Sayısı</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">1</th>
+                        <td>
+                            <p> Sarıyer </p>
+                        </td>
+                        <td>
+                            <p> %46 </p>
+                        </td>
+                        <td>
+                            <p> 14.26 </p>
+                        </td>
+                        <td>
+                            <p> 5 </p>
+                        </td>
+                        <td>
+                            <p> 49 </p>
+                        </td>
+                        <td>
+                            <p> 7 </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col">2</th>
+                        <td>
+                            <p> Beşiktaş </p>
+                        </td>
+                        <td>
+                            <p> %67 </p>
+                        </td>
+                        <td>
+                            <p> 10.08 </p>
+                        </td>
+                        <td>
+                            <p> 0 </p>
+                        </td>
+                        <td>
+                            <p> 28 </p>
+                        </td>
+                        <td>
+                            <p> 3 </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>
+                            <p> Şişli </p>
+                        </td>
+                        <td>
+                            <p> %33 </p>
+                        </td>
+                        <td>
+                            <p> 8.26 </p>
+                        </td>
+                        <td>
+                            <p> 14 </p>
+                        </td>
+                        <td>
+                            <p> 39 </p>
+                        </td>
+                        <td>
+                            <p> 11 </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>
+                            <p> Kadıköy </p>
+                        </td>
+                        <td>
+                            <p> %76 </p>
+                        </td>
+                        <td>
+                            <p> 17.23 </p>
+                        </td>
+                        <td>
+                            <p> 28 </p>
+                        </td>
+                        <td>
+                            <p> 24 </p>
+                        </td>
+                        <td>
+                            <p> 5 </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>
+                            <p> Kağıthane </p>
+                        </td>
+                        <td>
+                            <p> %59 </p>
+                        </td>
+                        <td>
+                            <p> 13.52 </p>
+                        </td>
+                        <td>
+                            <p> 6 </p>
+                        </td>
+                        <td>
+                            <p> 9 </p>
+                        </td>
+                        <td>
+                            <p> 1 </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-------------------------------------------------------------------->
+
+<div id="myModalArea" class="modal fade">
+    <div class="modal-dialog" style=" margin: auto;padding:20px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"> Grafik Arayüzü 3</h4>
+            </div>
+            <div class="modal-body">
+
+                <div style="width:720px; height: 300px;" id="sickHistDivPl"></div>
+                <table class="table mobileTable" style="margin-bottom:-20px;">
+                    <tbody>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">İlçe</th>
+                        <th scope="col">Hasta Kişi</th>
+                        <th scope="col">Sağlıklı Kişi</th>
+                        <th scope="col">Riskli Kişi</th>
+                        <th scope="col">Risk Puanı</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">1</th>
+                        <td>
+                            <p> Sarıyer </p>
+                        </td>
+                        <td>
+                            <p> 49 </p>
+                        </td>
+                        <td>
+                            <p> 5 </p>
+                        </td>
+                        <td>
+                            <p> 7 </p>
+                        </td>
+                        <td>
+                            <p> 4.9 </p>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th scope="col">2</th>
+                        <td>
+                            <p> Beşiktaş </p>
+                        </td>
+                        <td>
+                            <p> 67 </p>
+                        </td>
+                        <td>
+                            <p> 10 </p>
+                        </td>
+                        <td>
+                            <p> 0 </p>
+                        </td>
+                        <td>
+                            <p> 2.8 </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>
+                            <p> Şişli </p>
+                        </td>
+                        <td>
+                            <p> 33 </p>
+                        </td>
+                        <td>
+                            <p> 8 </p>
+                        </td>
+                        <td>
+                            <p> 14 </p>
+                        </td>
+                        <td>
+                            <p> 6.9 </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>
+                            <p> Kadıköy </p>
+                        </td>
+                        <td>
+                            <p> 76 </p>
+                        </td>
+                        <td>
+                            <p> 3 </p>
+                        </td>
+                        <td>
+                            <p> 8 </p>
+                        </td>
+                        <td>
+                            <p> 5.4 </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>
+                            <p> Kağıthane </p>
+                        </td>
+                        <td>
+                            <p> 59 </p>
+                        </td>
+                        <td>
+                            <p> 13 </p>
+                        </td>
+                        <td>
+                            <p> 6 </p>
+                        </td>
+                        <td>
+                            <p> 4.9 </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-------------------------------------------------------------------->
+
+<div id="myModalPerson" class="modal fade">
+    <div class="modal-dialog" style=" margin: auto;padding:20px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"> Kişi Bazlı Derin Analiz </h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="container rightRow containerMargin" style="height: 100%">
+                  <div class="row">
+                      <div class="column" style="width: 50% !important;">
+                          <div class="card" style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);padding-left: 23px;width: 350px !important;height: 320px !important;">
+                            <div style="width:300px; height: 300px;" > <div style="width:300px; height: 300px;" id="radarDiv" > </div> </div>
+                          </div>
+                      </div>
+                      <div class="column" style="width: 50% !important;">
+                          <div class="card" style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);padding-left: 23px;width: 350px !important;height: 320px !important;">
+                            <div style="width:300px; height: 300px;margin-top:-10px;" > <canvas id="pie-chart" width="300" height="300"></canvas> </div> </div>
+                          </div>
+                      </div>
+                  </div>
+                    <div class="row">
+                        <div class="column" style="width: 50% !important;">
+                            <div class="card" style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);padding-left: 23px;width: 350px !important;height: 320px !important;">
+                              <div style="width:300px; height: 300px;" > <canvas id="line-chart" width="300" height="300"></canvas> </div>
+                            </div>
+                        </div>
+                        <div class="column" style="width: 50% !important;">
+                          <div class="card" style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);padding-left: 23px;width: 350px !important;height: 320px !important;">
+                            <div style="width:300px; height: 300px;margin-top:-10px;" > <canvas id="bar-chart-grouped" width="300" height="300"></canvas> </div> </div>
+                          </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-------------------------------------------------------------------->
+
+  <div id="myModalDepthArea" class="modal fade">
+      <div class="modal-dialog" style=" margin: auto;padding:20px">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title"> Bölge Bazlı Derin Analiz - Beşiktaş </h4>
+              </div>
+              <div class="modal-body">
+
+                  <div class="container rightRow containerMargin" style="height: 100%">
+                    <div class="row">
+                      <div class="column" style="width: 50% !important;">
+                          <div class="card" style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);padding-left: 23px;width: 350px !important;height: 320px !important;">
+                            <div style="width:300px; height: 300px;" > <canvas id="radar-chart" width="300" height="300"></canvas> </div>
+                          </div>
+                      </div>
+                        <div class="column" style="width: 50% !important;">
+                            <div class="card" style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);padding-left: 23px;width: 350px !important;height: 320px !important;">
+                              <div style="width:300px; height: 300px;margin-top:-10px;" > <canvas id="pieChartArea" width="300" height="300"></canvas> </div> </div>
+                            </div>
+                        </div>
+                    </div>
+                      <div class="row">
+                          <div class="column" style="width: 50% !important;">
+                              <div class="card" style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);padding-left: 23px;width: 350px !important;height: 320px !important;">
+                                <div style="width:300px; height: 300px;" > <canvas id="someChartArea" width="300" height="300"></canvas> </div>
+                              </div>
+                          </div>
+                          <div class="column" style="width: 50% !important;">
+                            <div class="card" style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);padding-left: 23px;width: 350px !important;height: 320px !important;">
+                              <div style="width:300px; height: 300px;margin-top:-10px;" > <canvas id="mixedChart" width="300" height="300"></canvas> </div> </div>
+                            </div>
+                          </div>
+                      </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+<!-------------------------------------------------------------------->
+
+<div id="timeArea" class="modal fade" style="bottom:0;top:unset;">
+    <div class="modal-dialog" style=" margin: auto;padding:20px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"> Time Line </h4>
+            </div>
+            <div class="modal-body" >
+
+                <h3>Sayaç</h3>
+                <div style="text-align: center;margin:10px;">
+                    <div>
+                        <input id="range-slider-text" type="text" size="100"/>
+                    </div>
+                    <button class="btn btn-primary" style="margin-top:10px;margin-bottom:10px;" id="play"
+                            onclick="simulateInTimeRange()">Oynat
+                    </button>
+                    <button class="btn btn-primary" style="margin-top:10px;margin-bottom:10px;" id="stop"
+                            onclick="stopSimulation()">Durdur
+                    </button>
+                    <div>
+                        <span>Hız: </span>
+                        <input id="speed-slider-text" type="text"/>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-------------------------------------------------------------------->
+
+    <script src="../static/js/functions.js?1405201665"></script>
+    <script src="../static/js/charts.js?1405201665"></script>
+    <script src="../static/js/mapfunc.js?1405201665"></script>
+</body>
+</html>

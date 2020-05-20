@@ -1,0 +1,783 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.dateInput{
+  margin-bottom: 10px;
+}
+.table{
+  text-align: center !important;
+}
+.th{
+  vertical-align: unset !important;
+}
+.chartImg {
+  position: absolute;
+      width: 60px;
+      padding: 5px;
+      opacity: 0.9;
+      border: 3px solid #ffffff;
+      background: #c681cd;
+      border-radius: 50px;
+      align-items: center;
+      margin-left: -29.7px;
+      margin-top: 59.5px;
+      z-index: -1;
+}
+
+.chartImg:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    background-color: rgba(198, 129, 205, 1);
+}
+
+.DateWidth{
+  width: 98% !important;
+}
+
+
+@media screen and (max-height: 950px) {
+    .contentBody {
+        height: 790px;
+        overflow: auto;
+        width: 350px;
+    }
+    .contentHeader{
+      margin-top: -420px !important;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #999;
+        border-radius: 5px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #b30000;
+    }
+    .modal-dialog {
+    width: 800px;
+    margin: 30px auto;
+    }
+}
+@media screen and (max-height: 900px) {
+    .contentBody {
+        height: 750px !important;
+    }
+    .contentHeader{
+      margin-top: -380px!important;
+    }
+}
+
+@media screen and (max-height: 850px) {
+    .contentBody {
+        height: 710px !important;
+    }
+    .contentHeader{
+      margin-top: -340px !important;
+    }
+}
+
+@media screen and (max-height: 800px) {
+    .contentBody {
+        height: 670px !important;
+    }
+    .contentHeader{
+      margin-top: -300px !important;
+    }
+}
+
+@media (min-width: 768px){
+.modal-dialog {
+    width: 800px !important;
+}
+}
+
+@media (min-width: 1500px){
+.modal-dialog {
+    width: 800px !important;
+}
+.modal-content {
+    width: 600px !important;
+}
+}
+
+@media screen and (max-height: 750px) {
+    .contentBody {
+        height: 640px !important;
+    }
+    .contentHeader{
+      margin-top: -270px !important;
+    }
+
+}
+
+@media screen and (max-height: 700px) {
+    .contentBody {
+        height: 590px !important;
+    }
+    .contentHeader{
+      margin-top: -230px !important;
+    }
+}
+
+@media screen and (max-height: 650px) {
+    .contentBody {
+        height: 555px !important;
+    }
+    .contentHeader{
+      margin-top: 150px !important;
+    }
+    .column{
+      width: 90% !important;
+      margin: 10px !important;
+    }
+    .sidebar-content{
+      width: 250px !important;
+    }
+    .sidebarright{
+      margin-left: 50px !important;
+    }
+    .sidebarleft{
+      margin-left: -50px !important;
+    }
+    .menuHeader{
+      width: 250px !important;
+      margin-left: 50px !important;
+    }
+    .colors{
+      width: 230px;
+      margin-left: 40px;
+    }
+    .row{
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .row_console {
+        width: 240px !important;
+        margin-right: 30px !important;
+    }
+    .timeLine{
+      margin-left: 40px !important;
+    }
+    .containerMargin{
+      margin-bottom: 600px !important;
+    }
+    .left.collapsed {
+        transform: translateX(-260px) !important;
+    }
+    .ituLogoRight{
+      margin-right: 0px !important;
+      margin-left: 0px !important;
+    }
+    .ituLogoLeft{
+      margin-right: 0px !important;
+      margin-left: 0px !important;
+    }
+    #menu{
+      width: 120px !important;
+    }
+    #menu2{
+      width: 120px !important;
+    }
+    .shadowBG{
+      width: 240px !important;
+      margin-left: 40px !important;
+    }
+    .rightRow{
+      margin-left: 50px !important;
+    }
+    .RightMenuHeader{
+      margin-left: -20px;
+    }
+    .searchText{
+      width: 80px !important;
+    }
+    .right.collapsed {
+        transform: translateX(260px) !important;
+    }
+    .chartBar{
+      width: 200px !important;
+      margin-left: 30px;
+    }
+    .mobileTable{
+      width: 100%;
+      font-size: 10px;
+      width: 200px;
+      margin-left: 60px;
+      margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .contentBody {
+        height: 510px !important;
+    }
+    .contentHeader{
+      margin-top: 200px !important;
+    }
+    .column{
+      width: 90% !important;
+      margin: 10px !important;
+    }
+    .card{
+      width: 200px !important;
+    }
+    .sidebar-content{
+      width: 250px !important;
+
+    }
+    .menuHeader{
+      width: 250px !important;
+      margin-left: 50px !important;
+    }
+    .row{
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .left.collapsed {
+        transform: translateX(-260px) !important;
+    }
+
+    .right.collapsed {
+        transform: translateX(260px) !important;
+    }
+    .mobileTable{
+      width: 100%;
+      font-size: 10px;
+      width: 200px;
+      margin-left: 60px;
+      margin-bottom: 50px;
+    }
+}
+/* width */
+
+.slider.slider-horizontal{
+  width: 600px !important;
+}
+.modal-content{
+  width: 800px !important;
+}
+
+.shadowBG{
+  background-color: rgba(0, 0, 0,0.2);
+  width: 300px; height: 200px;
+  border-radius: 10px;
+  padding: 30px;
+  margin-top:10px;
+}
+
+.ituLogoRight{
+  margin-right: -60px;
+  margin-left: 30px;
+}
+.ituLogoLeft{
+  margin-right: 30px;
+  margin-left: -100px;
+}
+
+.selectMenu{
+  font-size: 20px;
+}
+
+.canvasGeneral{
+  display: block;
+  width: 300px;
+  height: 300px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 30px;
+}
+
+.grid-container > div {
+    text-align: center;
+}
+
+.menuHeader {
+    background-color: #2196F3;
+    padding: 10px;
+    width: 350px;
+    height: 60px;
+    border-radius: 10px 10px 0 0;
+}
+
+.card {
+    width: 140px;
+    margin: 10px;
+    padding-top: 15px;
+    margin-bottom: -15px;
+    border-style: solid;
+    border-color: red;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
+.card-text {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.card-header {
+    color: #000000;
+    margin: 2px;
+}
+
+.icon-bar {
+    width: 90px;
+    height: 150px;
+}
+
+.icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    transition: all 0.3s ease;
+
+    font-size: 36px;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #2dc4b2;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #2dc4b2;
+}
+
+#console {
+    position: absolute;
+    width: 450px;
+    height: 300px;
+    margin-right: -4px;
+    margin-bottom: -350px;
+    padding: 10px;
+    bottom: 50%;
+    right: 1%;
+    background-color: white;
+}
+
+.map_changer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.map_changer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.map_changer:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.map_changer input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.map_changer input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.map_changer .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+.mapboxgl-popup {
+    max-width: 400px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+#menu {
+    width: 140px;
+    height: 164px;
+    display: "block";
+    position: absolute;
+    padding: 10px;
+    left: 50%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#menu2 {
+    width: 140px;
+
+    display: "block";
+    position: absolute;
+
+    right: 50%;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+h1 {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+h2 {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+
+.rounded-rect {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 50px -25px black;
+}
+
+.rounded-rect1 {
+    border-radius: 10px;
+    box-shadow: 0 0 50px -25px black;
+}
+
+.flex-center {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.flex-center.left {
+    left: 0px;
+}
+
+.flex-center.right {
+    right: 0px;
+}
+
+.sidebar-content {
+    position: absolute;
+    height: 95%;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 350px;
+}
+
+.bar1 {
+    font-size: 20px;
+    padding: 8px;
+}
+
+.sidbear-toggle {
+    position: absolute;
+    width: 2.3em;
+    height: 2.3em;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidbear-toggle.left {
+    right: -3.1em;
+}
+
+.sidbear-toggle.right {
+    left: -3.1em;
+}
+
+
+.sidbear-toggle:hover {
+    color: #0aa1cf;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sidebar {
+    transition: transform 1s;
+    z-index: 1;
+    width: 350px;
+    height: 100%;
+}
+
+/*
+The sidebar styling has them "expanded" by default, we use CSS transforms to push them offscreen
+The toggleSidebar() function removes this class from the element in order to expand it.
+*/
+.left.collapsed {
+    transform: translateX(-360px);
+}
+
+.right.collapsed {
+    transform: translateX(360px);
+}
+
+
+.session {
+    margin-bottom: 20px;
+    margin-right: 5%;
+}
+
+/*.row {
+    height: 12px;
+    width: 50%;
+}*/
+
+.row {
+    margin: 0 -5px;
+    padding: 10px 0
+
+}
+
+.column {
+    float: left;
+    width: 45%;
+    padding: 0 10px;
+}
+
+.row_console {
+    height: 12px;
+    width: 100%;
+}
+
+.rows {
+    height: 12px;
+}
+
+.colors {
+    background: linear-gradient(to right, rgb(119, 221, 119), rgb(187, 215, 108), rgb(255, 210, 97), rgb(255, 157, 97), rgb(255, 105, 97), rgb(255, 53, 97));
+    margin-bottom: 5px;
+}
+
+.label {
+    width: 15%;
+    display: inline-block;
+    text-align: center;
+}
+
+.labels {
+    display: inline-block;
+    text-align: center;
+}
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+    width: 350px;
+    padding: 0;
+    width: 100%;
+}
+
+.cardIkon {
+    width: 50px;
+    margin-top: -8px;
+}
+
+.change {
+    transform: rotate(-45deg) translate(0px, 0px);
+    transform: rotate(-45deg) translate(0px, 0px);
+}
+
+#content4 {
+    width: 140px;
+
+}
+
+.radio_map_style {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio_map_style input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio_map_style:hover input ~ .checkmark2 {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio_map_style input:checked ~ .checkmark2 {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark2:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio_map_style input:checked ~ .checkmark2:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio_map_style .checkmark2:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+button.btn-settings {
+  margin: 25px;
+  padding: 20px 30px;
+  font-size: 1.2em;
+  background-color: #337ab7;
+  color: white;
+}
+button.btn-settings:active {
+  color: white;
+}
+.modal {
+    overflow: hidden;
+    bottom: auto;
+    z-index: 0;
+}
+.modal-dialog {
+    margin-right: 0;
+    margin-left: 0;
+}
+.modal-header {
+  height:30px;
+  padding: 20px;
+  background-color:#2196F3;
+  color:white;
+}
+.modal-title {
+  margin-top:-10px;
+  font-size:16px;
+}
+.modal-header .close {
+  margin-top:-10px;
+  color:#fff;
+}
+.modal-body {
+  color:#888;
+  padding: 5px 35px 20px;
+}
+.modal-body h3 {
+  text-align: center;
+}
+.modal-body p {
+  padding-top:10px;
+  font-size: 1.1em;
+}
+#range-slider .slider-selection {
+	background: #337ab7;
+}
+
+.slider .tooltip-inner {
+  visibility: hidden;
+}
+.slider .tooltip-arrow {
+  visibility: hidden;
+}

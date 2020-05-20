@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Kortsis Harita</title>
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+	<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="../static/js/plotly.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet"/>
+	<link href="../static/css/style.css" rel="stylesheet"/>
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+</head>
+<body>
+
+<div id="map">
+<div id="left" class="sidebar flex-center left collapsed">
+<div class="sidebar-content rounded-rect flex-center">
+Left Sidebar
+<div
+class="sidbear-toggle rounded-rect left"
+onclick="toggleSidebar('left')"
+>
+&rarr;
+</div>
+</div>
+</div>
+<div id="right" class="sidebar flex-center right collapsed">
+<div class="sidebar-content rounded-rect flex-center">
+Right Sidebar
+<div
+class="sidbear-toggle rounded-rect right"
+onclick="toggleSidebar('right')"
+>
+&larr;
+</div>
+</div>
+</div>
+</div>
+<script src="../static/js/functions.js"></script>
+    <script src="../static/js/charts.js"></script>
+    <script src="../static/js/mapfunc.js"></script>
+</body>
+</html>
