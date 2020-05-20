@@ -619,7 +619,7 @@ The toggleSidebar() function removes this class from the element in order to exp
 }
 
 .colors {
-    background: linear-gradient(to right, rgb(119, 221, 119), rgb(187, 215, 108), rgb(255, 210, 97), rgb(255, 157, 97), rgb(255, 105, 97), rgb(255, 53, 97));
+    background: linear-gradient(to left, rgb(119, 221, 119), rgb(187, 215, 108), rgb(255, 210, 97), rgb(255, 157, 97), rgb(255, 105, 97), rgb(255, 53, 97));
     margin-bottom: 5px;
 }
 
