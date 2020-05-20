@@ -357,88 +357,60 @@
                         </div>
                         <div class="row">
                             <div class="column">
-                                <div id="tdivcurrentSick" href="#myModal" class="card btn btn-settings"
-                                     data-backdrop="false" data-toggle="modal"
+                                <div id="divbranchdailyTotalCargo" class="card"
                                      style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                    <img class="cardIkon" src="../static/img/sickNumber.svg" alt="hasta" width="50"
+                                    <img class="cardIkon" src="../static/img/dashboard/cargoNumber.svg" alt="hasta" width="50"
                                          height="50">
-                                    <h2 class="card-header">Günlük Toplam Kar</h2>
-                                    <p class="card-header" id="tcurrentSick"></p>
+                                    <h2 class="card-header">Günlük Toplam Kargo Sayısı</h2>
+                                    <p class="card-header" id="branchdailyTotalCargo"></p>
                                 </div>
                             </div>
                             <div class="column">
-                                <div id="tdivcurrentHealthy" href="#myModal" class="card btn btn-settings"
-                                     data-backdrop="false" data-toggle="modal"
+                                <div id="divbranchtotalSuccessRate" class="card"
                                      style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                    <img src="../static/img/healthy.svg" class="cardIkon" alt="hasta">
-                                    <h2 class="card-header">Sağlıklı Kişi Sayısı</h2>
-                                    <p class="card-header" id="tcurrentHealthy"></p>
+                                    <img src="../static/img/dashboard/cargoTime.svg" class="cardIkon" alt="hasta">
+                                    <h2 class="card-header">Toplam Başarı Oranı</h2>
+                                    <p class="card-header" id="branchtotalSuccessRate"></p>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="column">
-                                <div id="tdivcurrentRisk" href="#myModalSaglik" class="card btn btn-settings"
-                                     data-backdrop="false" data-toggle="modal"
+                                <div id="divbranchmostCargo" class="card"
                                      style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                    <img class="cardIkon" src="../static/img//sick.svg" alt="hasta" width="50"
-                                         height="50">
-                                    <h2 class="card-header">Riskli Kişi Sayısı</h2>
-                                    <p class="card-header" id="tcurrentRisk"></p>
+                                    <img class="cardIkon" src="../static/img/dashboard/road.svg" alt="hasta"
+                                         width="50" height="50">
+                                    <h2 class="card-header">En çok Kargo Dağıtılan İlçeler</h2>
+                                    <p class="card-header" id="branchmostCargo"></p>
                                 </div>
                             </div>
                             <div class="column">
-                                <div id="tdivriskPoint" href="#myModalSaglik" class="card btn btn-settings"
-                                     data-backdrop="false" data-toggle="modal"
+                                <div id="divbranchcargoAverange" class="card"
                                      style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                    <img class="cardIkon" src="../static/img//personRisk.svg" alt="hasta" width="50"
-                                         height="50">
-                                    <h2 class="card-header">Risk Puanı</h2>
-                                    <p class="card-header" id="triskPoint"></p>
+                                    <img class="cardIkon" src="../static/img/dashboard/breakable.svg" alt="hasta"
+                                         width="50" height="50">
+                                    <h2 class="card-header">Ortalama Günlük Kargo Dağıtım Süresi</h2>
+                                    <p class="card-header" id="branchcargoAverange"></p>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="column">
-                                <div id="tdivpeopleHome" href="#myModalSaglik" class="card btn btn-settings"
-                                     data-backdrop="false" data-toggle="modal"
+                                <div id="divbranchbranchSuccess" class="card"
                                      style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                    <img class="cardIkon" src="../static/img/home.svg" alt="hasta" width="50"
-                                         height="50">
-                                    <h2 class="card-header">Evde Kalma</h2>
-                                    <p class="card-header" id="tpeopleHome"></p>
+                                    <img class="cardIkon" src="../static/img/dashboard/success.svg" alt="hasta"
+                                         width="50" height="50">
+                                    <h2 class="card-header">Şube Başarı İstatistikleri</h2>
+                                    <p class="card-header" id="branchbranchSuccess"></p>
                                 </div>
                             </div>
                             <div class="column">
-                                <div id="tdivriskZone" href="#myModalSaglik" class="card btn btn-settings"
-                                     data-backdrop="false" data-toggle="modal"
+                                <div id="divbranchactiveTruck" class="card"
                                      style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                    <img class="cardIkon" src="../static/img/riskZone.svg" alt="hasta" width="50"
-                                         height="50">
-                                    <h2 class="card-header">Risk Bölgeleri</h2>
-                                    <p class="card-header" id="triskZone"></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="column">
-                                <div id="tdivtotalAge" href="#myModalSaglik" class="card btn btn-settings"
-                                     data-backdrop="false" data-toggle="modal"
-                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                    <img class="cardIkon" src="../static/img/peopleAge.svg" alt="hasta" width="50"
-                                         height="50">
-                                    <h2 class="card-header">Yaş</h2>
-                                    <p class="card-header" id="ttotalAge"></p>
-                                </div>
-                            </div>
-                            <div class="column" style="margin-bottom: 50px;">
-                                <div id="tdivtotalMovement" href="#myModalSaglik" class="card btn btn-settings"
-                                     data-backdrop="false" data-toggle="modal"
-                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                    <img class="cardIkon" src="../static/img/personMovement.svg" alt="hasta" width="50"
-                                         height="50">
-                                    <h2 class="card-header">Toplam Hareket</h2>
-                                    <p class="card-header" id="ttotalMovement"></p>
+                                    <img class="cardIkon" src="../static/img/dashboard/type.svg" alt="hasta"
+                                         width="50" height="50">
+                                    <h2 class="card-header">Aktif Araç Sayısı</h2>
+                                    <p class="card-header" id="branchactiveTruck"></p>
                                 </div>
                             </div>
                         </div>
