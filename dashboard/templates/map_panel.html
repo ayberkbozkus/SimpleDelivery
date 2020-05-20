@@ -253,9 +253,6 @@
                     <div class="menuHeader">
                         <button class="btn" onclick="openRightMenu('content3')"><img src="../static/img/people.svg"
                                                                                      alt="piechart"></button>
-                        <button class="btn" onclick="openRightMenu('content4')"><img width="24px"
-                                                                                     src="../static/img/location.svg"
-                                                                                     alt="layers"></button>
                         <button class="btn" onclick="openRightMenu('content5')"><img src="../static/img/maps.svg"
                                                                                      alt="city"></button>
 
@@ -331,152 +328,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="content4" style="width:350px;" class="w3-container rightSideBarContent">
-                    <div class="contentBody">
-                        <div class="container" style="height: 100%">
-                            <h3>Akıllı Çevre Analizi</h3>
-                            <div class="row">
-                                <div class="column">
-                                    <div id="divnearPeople" href="#myModal" class="card btn btn-settings"
-                                         data-backdrop="false" data-toggle="modal"
-                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                        <img class="cardIkon" src="../static/img/sickNumber.svg" alt="hasta" width="50"
-                                             height="50">
-                                        <h2 class="card-header">Yakındaki İnsan</h2>
-                                        <p class="card-header" id="nearPeople"></p>
-                                    </div>
-                                </div>
-                                <div class="column">
-                                    <div id="divnearstPeople" href="#myModal" class="card btn btn-settings"
-                                         data-backdrop="false" data-toggle="modal"
-                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                        <img src="../static/img/healthy.svg" class="cardIkon" alt="hasta">
-                                        <h2 class="card-header">En Yakın Kişi</h2>
-                                        <p class="card-header" id="nearstPeople"></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="column">
-                                    <div id="divdangerstPeople" href="#myModal" class="card btn btn-settings"
-                                         data-backdrop="false" data-toggle="modal"
-                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                        <img class="cardIkon" src="../static/img//sick.svg" alt="hasta" width="50"
-                                             height="50">
-                                        <h2 class="card-header">En Riskli Kişi </h2>
-                                        <p class="card-header" id="dangerstPeople"></p>
-                                    </div>
-                                </div>
-                                <div class="column">
-                                    <div id="divsickstPeople" href="#myModal" class="card btn btn-settings"
-                                         data-backdrop="false" data-toggle="modal"
-                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                        <img class="cardIkon" src="../static/img//personRisk.svg" alt="hasta" width="50"
-                                             height="50">
-                                        <h2 class="card-header">En Hasta Kişi</h2>
-                                        <p class="card-header" id="sickstPeople"></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="column">
-                                    <div id="divcircleSickPeople" href="#myModal" class="card btn btn-settings"
-                                         data-backdrop="false" data-toggle="modal"
-                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                        <img class="cardIkon" src="../static/img/home.svg" alt="hasta" width="50"
-                                             height="50">
-                                        <h2 class="card-header ">Çevredeki Hasta</h2>
-                                        <p class="card-header" id="circleSickPeople"></p>
-                                    </div>
-                                </div>
-                                <div class="column">
-                                    <div id="divcircleRiskPeople" href="#myModal" class="card btn btn-settings"
-                                         data-backdrop="false" data-toggle="modal"
-                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                        <img class="cardIkon" src="../static/img/riskZone.svg" alt="hasta" width="50"
-                                             height="50">
-                                        <h2 class="card-header">Çevredeki Riskli</h2>
-                                        <p class="card-header" id="circleRiskPeople"></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="margin-top: 30px;">
-                            <h2 class=" contentHeader card-header " style="margin-bottom: 30px;">Çevredeki Hasta
-                                Kişi</h2>
-                            <table class="table mobileTable">
-                                <tbody>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Uzaklık</th>
-                                    <th scope="col">UserId</th>
-                                    <th scope="col">Vücut Sıcaklığı</th>
-                                </tr>
-                                <tr>
-                                    <th scope="col">1</th>
-                                    <td>
-                                        <p class="card-header" id="person1dis"></p>
-                                    </td>
-                                    <td>
-                                        <p class="card-header" id="person1id"></p>
-                                    </td>
-                                    <td>
-                                        <p class="card-header" id="person1temp"></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="col">2</th>
-                                    <td>
-                                        <p class="card-header" id="person2dis"></p>
-                                    </td>
-                                    <td>
-                                        <p class="card-header" id="person2id"></p>
-                                    </td>
-                                    <td>
-                                        <p class="card-header" id="person2temp"></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>
-                                        <p class="card-header" id="person3dis"></p>
-                                    </td>
-                                    <td>
-                                        <p class="card-header" id="person3id"></p>
-                                    </td>
-                                    <td>
-                                        <p class="card-header" id="person3temp"></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>
-                                        <p class="card-header" id="person4dis"></p>
-                                    </td>
-                                    <td>
-                                        <p class="card-header" id="person4id"></p>
-                                    </td>
-                                    <td>
-                                        <p class="card-header" id="person4temp"></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>
-                                        <p class="card-header" id="person5dis"></p>
-                                    </td>
-                                    <td>
-                                        <p class="card-header" id="person5id"></p>
-                                    </td>
-                                    <td>
-                                        <p class="card-header" id="person5temp"></p>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+
                 <div id="content5" style="width:350px; " class="w3-container rightSideBarContent">
                     <div class="contentBody">
                         <div class="container containerMargin" style="height: 10px; margin-top: 5px;">
@@ -510,7 +362,7 @@
                                      style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
                                     <img class="cardIkon" src="../static/img/sickNumber.svg" alt="hasta" width="50"
                                          height="50">
-                                    <h2 class="card-header">Hasta Sayısı</h2>
+                                    <h2 class="card-header">Günlük Toplam Kar</h2>
                                     <p class="card-header" id="tcurrentSick"></p>
                                 </div>
                             </div>
@@ -590,7 +442,79 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row" style="margin:50px;">
+                        <div class="row">
+
+                            <h2 class=" contentHeader card-header " style="margin-bottom: 30px;"> Şubeler</h2>
+                            <table class="table mobileTable">
+                                <tbody>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Şube Kodu</th>
+                                    <th scope="col">Dağıtımdaki Kargo</th>
+                                    <th scope="col">Başarı Oranı</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col">1</th>
+                                    <td>
+                                        <p class="card-header" id="person1dis"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person1id"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person1temp"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">2</th>
+                                    <td>
+                                        <p class="card-header" id="person2dis"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person2id"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person2temp"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>
+                                        <p class="card-header" id="person3dis"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person3id"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person3temp"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>
+                                        <p class="card-header" id="person4dis"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person4id"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person4temp"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>
+                                        <p class="card-header" id="person5dis"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person5id"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-header" id="person5temp"></p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
