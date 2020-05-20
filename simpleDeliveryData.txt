@@ -1,0 +1,42 @@
+time,type,id,sit,kargoid,lng,lat,guess, cargoNum,weight,volume,precis,nextlng,nextlat
+2020-03-02 23:00:00,customer,00001,wait,29.0206421,41.1078748,00:30:00,12345,120,300,1,null,null
+2020-03-02 23:00:00,carrier,00001,move,29.0306421,41.1088748,00:30:00,12345,120,300,1,29.0206421,41.1078748
+
+time
+type -> carrier / customer / branch
+id
+  user-> userid
+  carrier -> carrierid
+sit
+  user -> wait / reject / relocation / accept
+  carrier -> stop / move /
+kargoid ->
+  user-> kargo number
+  carrier -> next kargo number
+lng ->
+  user-> adress
+  carrier -> location
+lat ->
+  user -> adress
+  carrier -> location
+guess ->
+  user -> delivery guess
+  carrier -> next delivery guess
+cargoNum
+  user -> How much cargo have
+  carrier -> How much cargo have transport
+weight
+  user -> cargo weight
+  cargo -> next cargo weight
+volume
+  user -> cargo volume
+  cargo -> next cargo volume
+precis
+  user -> cargo precision
+  cargo -> next cargo precision
+nextlng
+  user->null
+  carrier -> next location
+nextlat
+  user->null
+  carrier -> next location
