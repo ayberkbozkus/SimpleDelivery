@@ -154,6 +154,39 @@ new Chart(document.getElementById("radar-chart"), {
     options: {
       title: {
         display: true,
+        text: 'İlçe Haftalık Müşteri Yorum Dağılımı'
+      }
+    }
+});
+
+new Chart(document.getElementById("radarChart"), {
+    type: 'radar',
+    data: {
+      labels: ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
+      datasets: [
+        {
+          label: "Olumlu",
+          fill: true,
+          backgroundColor: "rgba(86, 247, 114,0.2)",
+          borderColor: "rgba(86, 247, 114,1)",
+          pointBorderColor: "#fff",
+          pointBackgroundColor: "rgba(86, 247, 114,1)",
+          data: [43,52,21,41,55,34,63]
+        }, {
+          label: "Olumsuz",
+          fill: true,
+          backgroundColor: "rgba(255,99,132,0.2)",
+          borderColor: "rgba(255,99,132,1)",
+          pointBorderColor: "#fff",
+          pointBackgroundColor: "rgba(255,99,132,1)",
+          pointBorderColor: "#fff",
+          data: [17,32,41,31,34,19,45]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
         text: 'Günlük Müşteri Yorum Dağılımı'
       }
     }
@@ -203,7 +236,7 @@ new Chart(document.getElementById("bar-chart-grouped"), {
       datasets: [
         {
           label: "Ulaştırılamamış/Hatalı Dağıtım Adedi",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#ff0000","#f0ad4e"],
+          backgroundColor: ["#ff0000","#f0ad4e","#f0ad4e","#ff0000","#f0ad4e","#f0ad4e","#ff0000"],
           data: [12,4,6,11,5,6,9,0]
         }
       ]
@@ -328,7 +361,7 @@ function searchFunction(userno) {
     }
 
 
-    var ud_url = 'http://160.75.154.58:5000/user_descriptive?uid=' + ppid;
+    var ud_url = '#' + ppid;
     var all_info = JSON.parse(Get(ud_url));
 
     ikoncolor(all_info.age, "totalCargo", "divtotalCargo", 30, 60);
@@ -340,10 +373,10 @@ function searchFunction(userno) {
 
     document.getElementById('personLastDataDate').innerHTML = 'Son veri: ' + all_info.last_date;
 
-    var gi_url = 'http://160.75.154.58:5000/user_temp_pred?uid=' + ppid;
+    var gi_url = '#' + ppid;
     var gen_info = JSON.parse(Get(gi_url));
 
-    var user_url = 'http://160.75.154.58:5000/getuser?uid=' + ppid;
+    var user_url = '#' + ppid;
     var user_info = JSON.parse(Get(user_url));
     var lng = user_info[user_info.length - 1].Longitude;
     var lat = user_info[user_info.length - 1].Latitude;
@@ -460,7 +493,7 @@ function searchFunction(userno) {
 //buraya if kutu açıksa gelecek
     Plotly.newPlot('predDivPlBig', predData, predLayout);
 
-    var area_url = 'http://160.75.154.58:5000/get_user_area?uid=' + ppid;
+    var area_url = '#' + ppid;
     var area_info = JSON.parse(Get(area_url));
     radarData = [{
     type: 'scatterpolar',

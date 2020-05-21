@@ -35,7 +35,7 @@ function Get(yourUrl) {
 }
 
 function generalInfo() {
-    var gi_url = 'http://160.75.154.58:5000/generalinfo';
+    var gi_url = '#';
     var gi_info = JSON.parse(Get(gi_url));
 
     iconcolor(gi_info.current_sick, "dailyTotalCargo", "divdailyTotalCargo", 50, 300);
@@ -55,7 +55,7 @@ generalInfo();
 
 function townInfo(townName) {
     document.getElementById("townNameText").innerHTML = townName;
-    var gi_url = 'http://160.75.154.58:5000/town_info?town='+townName;
+    var gi_url = '#'+townName;
     var gi_info = JSON.parse(Get(gi_url));
 
     iconcolor(gi_info.current_sick, "tcurrentSick", "tdivcurrentSick", 50, 300);
