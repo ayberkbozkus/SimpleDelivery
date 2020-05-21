@@ -251,9 +251,9 @@
             <div class='rows labels'>
                 <div>
                     <div class="menuHeader">
-                        <button class="btn" onclick="openRightMenu('content3')"><img src="../static/img/people.svg"
+                        <button class="btn" onclick="openRightMenu('content3')"><img width="30" height="30" src="../static/img/dashboard/container.svg"
                                                                                      alt="piechart"></button>
-                        <button class="btn" onclick="openRightMenu('content5')"><img src="../static/img/maps.svg"
+                        <button class="btn" onclick="openRightMenu('content5')"><img width="30" height="30" src="../static/img/dashboard/track.svg"
                                                                                      alt="city"></button>
 
                     </div>
@@ -265,63 +265,63 @@
                             <canvas id="pieChart1" style="height: 400px"></canvas>
                         </div>
                         <div class="container rightRow containerMargin" style="height: 100%">
-
+                          <h1>Genel Bilgiler</h1>
                             <div class="row">
                                 <div class="column">
                                     <div id="divdailyTotalCargo" class="card"
-                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);height:150px;">
                                         <img class="cardIkon" src="../static/img/dashboard/box.svg" alt="hasta" width="50"
                                              height="50">
                                         <h2 class="card-header">Günlük Toplam Kargo Sayısı</h2>
-                                        <p class="card-header" id="dailyTotalCargo"></p>
+                                        <h2 class="card-header" style="font-weight: 900;">5982</h2>
                                     </div>
                                 </div>
                                 <div class="column">
                                     <div id="divtotalSuccessRate" class="card"
-                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                        <img src="../static/img/dashboard/deliveryBox.svg" class="cardIkon" alt="hasta">
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);height:150px;">
+                                        <img src="../static/img/dashboard/deliveryBox.svg" style="margin-top: 10px!important;" class="cardIkon" alt="hasta">
                                         <h2 class="card-header">Toplam Başarı Oranı</h2>
-                                        <p class="card-header" id="totalSuccessRate"></p>
+                                        <h2 class="card-header" style="font-weight: 900;">%92</h2>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="column">
                                     <div id="divmostCargo" class="card"
-                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);height:150px;">
                                         <img class="cardIkon" src="../static/img/dashboard/map.svg" alt="hasta"
                                              width="50" height="50">
-                                        <h2 class="card-header">En çok Kargo Dağıtılan İlçeler</h2>
-                                        <p class="card-header" id="mostCargo"></p>
+                                        <h2 class="card-header">En çok Kargo Dağıtılan İlçe</h2>
+                                        <h2 class="card-header" style="font-weight: 900;">Beşiktaş</h2>
                                     </div>
                                 </div>
                                 <div class="column">
                                     <div id="divcargoAverange" class="card"
-                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);height:150px;">
                                         <img class="cardIkon" src="../static/img/dashboard/time.svg" alt="hasta"
                                              width="50" height="50">
                                         <h2 class="card-header">Ortalama Günlük Kargo Dağıtım Süresi</h2>
-                                        <p class="card-header" id="cargoAverange"></p>
+                                        <h2 class="card-header" style="font-weight: 900;">8.32 saat</h2>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="column">
                                     <div id="divbranchSuccess" class="card"
-                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);height:150px;">
                                         <img class="cardIkon" src="../static/img/dashboard/warehouse.svg" alt="hasta"
                                              width="50" height="50">
                                         <h2 class="card-header">Şube Başarı İstatistikleri</h2>
-                                        <p class="card-header" id="branchSuccess"></p>
+                                        <h2 class="card-header" style="font-weight: 900;">%87</h2>
                                     </div>
                                 </div>
                                 <div class="column">
                                     <div id="divactiveTruck" class="card"
-                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                        <img class="cardIkon" src="../static/img/dashboard/truck.svg" alt="hasta"
+                                         style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);height:150px;">
+                                        <img class="cardIkon" src="../static/img/dashboard/truck.svg" style="margin-top: 10px!important;" alt="hasta"
                                              width="50" height="50">
                                         <h2 class="card-header">Aktif Araç Sayısı</h2>
-                                        <p class="card-header" id="activeTruck"></p>
+                                        <h2 class="card-header" style="font-weight: 900;">2305</h2>
                                     </div>
                                 </div>
                             </div>
@@ -358,8 +358,8 @@
                         <div class="row">
                             <div class="column">
                                 <div id="divbranchdailyTotalCargo" class="card"
-                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                    <img class="cardIkon" src="../static/img/dashboard/cargoNumber.svg" alt="hasta" width="50"
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);height:150px;">
+                                    <img class="cardIkon" style="margin-top:5px;" src="../static/img/dashboard/cargoNumber.svg" alt="hasta" width="50"
                                          height="50">
                                     <h2 class="card-header">Günlük Toplam Kargo Sayısı</h2>
                                     <p class="card-header" id="branchdailyTotalCargo"></p>
@@ -367,8 +367,8 @@
                             </div>
                             <div class="column">
                                 <div id="divbranchtotalSuccessRate" class="card"
-                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                    <img src="../static/img/dashboard/cargoTime.svg" class="cardIkon" alt="hasta">
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);height:150px;">
+                                    <img src="../static/img/dashboard/cargoTime.svg" style="margin-top:10px;" class="cardIkon" alt="hasta">
                                     <h2 class="card-header">Toplam Başarı Oranı</h2>
                                     <p class="card-header" id="branchtotalSuccessRate"></p>
                                 </div>
@@ -377,8 +377,8 @@
                         <div class="row">
                             <div class="column">
                                 <div id="divbranchmostCargo" class="card"
-                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                    <img class="cardIkon" src="../static/img/dashboard/road.svg" alt="hasta"
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);height:150px;">
+                                    <img class="cardIkon" style="margin-top:5px;" src="../static/img/dashboard/road.svg" alt="hasta"
                                          width="50" height="50">
                                     <h2 class="card-header">En çok Kargo Dağıtılan İlçeler</h2>
                                     <p class="card-header" id="branchmostCargo"></p>
@@ -386,7 +386,7 @@
                             </div>
                             <div class="column">
                                 <div id="divbranchcargoAverange" class="card"
-                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);height:150px;">
                                     <img class="cardIkon" src="../static/img/dashboard/breakable.svg" alt="hasta"
                                          width="50" height="50">
                                     <h2 class="card-header">Ortalama Günlük Kargo Dağıtım Süresi</h2>
@@ -397,8 +397,8 @@
                         <div class="row">
                             <div class="column">
                                 <div id="divbranchbranchSuccess" class="card"
-                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                    <img class="cardIkon" src="../static/img/dashboard/success.svg" alt="hasta"
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);height:150px;">
+                                    <img class="cardIkon" style="margin-top:5px;" src="../static/img/dashboard/success.svg" alt="hasta"
                                          width="50" height="50">
                                     <h2 class="card-header">Şube Başarı İstatistikleri</h2>
                                     <p class="card-header" id="branchbranchSuccess"></p>
@@ -406,8 +406,8 @@
                             </div>
                             <div class="column">
                                 <div id="divbranchactiveTruck" class="card"
-                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);">
-                                    <img class="cardIkon" src="../static/img/dashboard/type.svg" alt="hasta"
+                                     style="background-color: rgba(33, 150, 243,0.2);border-color:rgb(33, 150, 243);height:150px;">
+                                    <img class="cardIkon" style="margin-top:10px;" src="../static/img/dashboard/type.svg" alt="hasta"
                                          width="50" height="50">
                                     <h2 class="card-header">Aktif Araç Sayısı</h2>
                                     <p class="card-header" id="branchactiveTruck"></p>
