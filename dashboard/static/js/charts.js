@@ -190,7 +190,7 @@ new Chart(document.getElementById("pieChartArea"), {
     options: {
       title: {
         display: true,
-        text: 'Hastalığın En Çok Görüldüğü Semtler'
+        text: 'En Çok Kargo Dağıtılan Semtler'
       }
     }
 });
@@ -222,15 +222,15 @@ new Chart(document.getElementById("mixedChart"), {
       labels: ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
       datasets: [
         {
-          label: "Hasta",
+          label: "Teslim Edilememiş",
           backgroundColor: ["#ff0000","#ff0000","#ff0000","#ff0000","#ff0000","#ff0000","#ff0000"],
-          data: [12,18,17,15,21,18,19,15]
+          data: [12,8,7,5,11,8,9,5]
         }, {
-          label: "Riskli",
+          label: "Teslim Edilecek",
           backgroundColor: ["#f0ad4e","#f0ad4e","#f0ad4e","#f0ad4e","#f0ad4e","#f0ad4e","#f0ad4e"],
           data: [22,24,21,16,26,19,23]
         }, {
-          label: "Sağlıklı",
+          label: "Teslim Edilmiş",
           backgroundColor: ["#5cb85c","#5cb85c","#5cb85c","#5cb85c","#5cb85c","#5cb85c","#5cb85c"],
           data: [37,34,39,32,38,36,39]
         }
@@ -249,8 +249,8 @@ new Chart(document.getElementById("someChartArea"), {
   data: {
     labels: ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
     datasets: [{
-        data: [23.2,53.1,14.2,43.5,31.2,39.2,24.2],
-        label: "%",
+        data: [156,187,221,165,177,210,197],
+        label: "Dağıtımda katedilen toplam mesafe (KM)",
         borderColor: "#5cb85c",
         fill: false
       },
@@ -259,7 +259,7 @@ new Chart(document.getElementById("someChartArea"), {
   options: {
     title: {
       display: true,
-      text: 'İlçe Kişi Temas Oranı'
+      text: 'Haftalık İlçe Hareket Verileri'
     }
   }
 });
