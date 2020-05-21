@@ -100,18 +100,18 @@ function addDataLayer() {
 
 
     var point = {
-'type': 'FeatureCollection',
-'features': [
-{
-'type': 'Feature',
-'properties': {},
-'geometry': {
-'type': 'Point',
-'coordinates': origin
-}
-}
-]
-};
+        'type': 'FeatureCollection',
+        'features': [
+            {
+                'type': 'Feature',
+                'properties': {},
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': origin
+                }
+            }
+        ]
+    };
 
     map.addSource('route', {
         'type': 'geojson',
@@ -126,9 +126,9 @@ function addDataLayer() {
     });
 
     map.addSource('point', {
-'type': 'geojson',
-'data': point
-});
+        'type': 'geojson',
+        'data': point
+    });
 
     map.addLayer(
         {
@@ -141,78 +141,78 @@ function addDataLayer() {
     );
 
     map.addLayer({
-'id': 'route',
-'source': 'route',
-'type': 'line',
-'paint': {
-'line-width': 2,
-'line-color': '#007cbf'
-}
-});
+        'id': 'route',
+        'source': 'route',
+        'type': 'line',
+        'paint': {
+            'line-width': 2,
+            'line-color': '#007cbf'
+        }
+    });
 
 
     map.addLayer({
-'id': 'point',
-'source': 'point',
-'type': 'symbol',
-'layout': {
-'icon-image': 'airport-15',
-'icon-rotate': ['get', 'bearing'],
-'icon-rotation-alignment': 'map',
-'icon-allow-overlap': true,
-'icon-ignore-placement': true
-}
-});
+        'id': 'point',
+        'source': 'point',
+        'type': 'symbol',
+        'layout': {
+            'icon-image': 'airport-15',
+            'icon-rotate': ['get', 'bearing'],
+            'icon-rotation-alignment': 'map',
+            'icon-allow-overlap': true,
+            'icon-ignore-placement': true
+        }
+    });
 
-function animate() {
+    function animate() {
 // Update point geometry to a new position based on counter denoting
 // the index to access the arc.
-point.features[0].geometry.coordinates =
-route.features[0].geometry.coordinates[counter];
+        point.features[0].geometry.coordinates =
+            route.features[0].geometry.coordinates[counter];
 
 // Calculate the bearing to ensure the icon is rotated to match the route arc
 // The bearing is calculate between the current point and the next point, except
 // at the end of the arc use the previous point and the current point
-point.features[0].properties.bearing = turf.bearing(
-turf.point(
-route.features[0].geometry.coordinates[
-counter >= steps ? counter - 1 : counter
-]
-),
-turf.point(
-route.features[0].geometry.coordinates[
-counter >= steps ? counter : counter + 1
-]
-)
-);
+        point.features[0].properties.bearing = turf.bearing(
+            turf.point(
+                route.features[0].geometry.coordinates[
+                    counter >= steps ? counter - 1 : counter
+                    ]
+            ),
+            turf.point(
+                route.features[0].geometry.coordinates[
+                    counter >= steps ? counter : counter + 1
+                    ]
+            )
+        );
 
 // Update the source with this new data.
-map.getSource('point').setData(point);
+        map.getSource('point').setData(point);
 
 // Request the next frame of animation so long the end has not been reached.
-if (counter < steps) {
-requestAnimationFrame(animate);
-}
+        if (counter < steps) {
+            requestAnimationFrame(animate);
+        }
 
-counter = counter + 1;
-}
+        counter = counter + 1;
+    }
 
-document.getElementById('replay').addEventListener('click', function() {
+    document.getElementById('replay').addEventListener('click', function () {
 // Set the coordinates of the original point back to origin
-point.features[0].geometry.coordinates = origin;
+        point.features[0].geometry.coordinates = origin;
 
 // Update the source layer
-map.getSource('point').setData(point);
+        map.getSource('point').setData(point);
 
 // Reset the counter
-counter = 0;
+        counter = 0;
 
 // Restart the animation.
-animate(counter);
-});
+        animate(counter);
+    });
 
 // Start the animation.
-animate(counter);
+    animate(counter);
 
 }
 
