@@ -98,30 +98,48 @@ function addDataLayer() {
         }
     }
 
+
+    var point = {
+'type': 'FeatureCollection',
+'features': [
+{
+'type': 'Feature',
+'properties': {},
+'geometry': {
+'type': 'Point',
+'coordinates': origin
+}
+}
+]
+};
+
     map.addSource('route', {
         'type': 'geojson',
         'data':
             'https://leventguner.net/sd/path.json'
     });
 
-    map.addSource('points', {
+    map.addSource('homes', {
         'type': 'geojson',
         'data':
             'https://leventguner.net/sd/points.json'
     });
 
-
+    map.addSource('point', {
+'type': 'geojson',
+'data': point
+});
 
     map.addLayer(
         {
             'id': 'delivery-points',
             'type': 'circle',
-            'source': 'points',
+            'source': 'homes',
             // 'minzoom': 10,
         },
         //'waterway-label'
     );
-    
+
     map.addLayer({
 'id': 'route',
 'source': 'route',
@@ -132,6 +150,69 @@ function addDataLayer() {
 }
 });
 
+
+    map.addLayer({
+'id': 'point',
+'source': 'point',
+'type': 'symbol',
+'layout': {
+'icon-image': 'airport-15',
+'icon-rotate': ['get', 'bearing'],
+'icon-rotation-alignment': 'map',
+'icon-allow-overlap': true,
+'icon-ignore-placement': true
+}
+});
+
+function animate() {
+// Update point geometry to a new position based on counter denoting
+// the index to access the arc.
+point.features[0].geometry.coordinates =
+route.features[0].geometry.coordinates[counter];
+
+// Calculate the bearing to ensure the icon is rotated to match the route arc
+// The bearing is calculate between the current point and the next point, except
+// at the end of the arc use the previous point and the current point
+point.features[0].properties.bearing = turf.bearing(
+turf.point(
+route.features[0].geometry.coordinates[
+counter >= steps ? counter - 1 : counter
+]
+),
+turf.point(
+route.features[0].geometry.coordinates[
+counter >= steps ? counter : counter + 1
+]
+)
+);
+
+// Update the source with this new data.
+map.getSource('point').setData(point);
+
+// Request the next frame of animation so long the end has not been reached.
+if (counter < steps) {
+requestAnimationFrame(animate);
+}
+
+counter = counter + 1;
+}
+
+document.getElementById('replay').addEventListener('click', function() {
+// Set the coordinates of the original point back to origin
+point.features[0].geometry.coordinates = origin;
+
+// Update the source layer
+map.getSource('point').setData(point);
+
+// Reset the counter
+counter = 0;
+
+// Restart the animation.
+animate(counter);
+});
+
+// Start the animation.
+animate(counter);
 
 }
 
