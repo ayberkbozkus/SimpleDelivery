@@ -130,14 +130,14 @@ new Chart(document.getElementById("optimizationChart"), {
     data: {
       labels: ["9.10", "9.25", "9.43", "10.01", "10.13", "10.17", "10.25", "10.33", "10.43", "10.49"],
       datasets: [{
-          label: "Europe",
+          label: "Teslim Edilen",
           type: "line",
           borderColor: "#5cb85c",
-          data: [2,1,4,1,2,null,null,null,null,null],
+          data: [1,3,4,1,2,null,null,null,null,null],
           fill: false,
           lineTension: 0
         }, {
-          label: "Africa",
+          label: "Teslim Edilecek/Tahmin",
           type: "line",
           borderColor: "#f0ad4e",
           data: [null,null,null,null,null,1,3,1,2,1],
@@ -145,11 +145,12 @@ new Chart(document.getElementById("optimizationChart"), {
           lineTension: 0
         },
         {
-          label: "Africa",
+          label: "",
           type: "line",
           borderColor: "rgb(0,0,0,0)",
           data: [0,5],
-          fill: false
+          fill: false,
+          display: false
         }
       ]
     },
@@ -158,7 +159,7 @@ new Chart(document.getElementById("optimizationChart"), {
         display: true,
         text: 'Kargo Dağıtım'
       },
-      legend: { display: false }
+      legend: { display: true }
     }
 });
 
@@ -319,7 +320,7 @@ new Chart(document.getElementById("someChartArea"), {
     labels: ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
     datasets: [{
         data: [156,187,221,165,177,210,197],
-        label: "Dağıtımda katedilen toplam mesafe (KM)",
+        label: "(KM)",
         borderColor: "#5cb85c",
         fill: false
       },
