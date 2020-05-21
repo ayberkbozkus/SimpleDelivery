@@ -125,6 +125,42 @@ new Chart(document.getElementById("lineChartArea"), {
     }
   }
 });*/
+new Chart(document.getElementById("optimizationChart"), {
+    type: 'bar',
+    data: {
+      labels: ["9.10", "9.25", "9.43", "10.01", "10.13", "10.17", "10.25", "10.33", "10.43", "10.49"],
+      datasets: [{
+          label: "Europe",
+          type: "line",
+          borderColor: "#5cb85c",
+          data: [2,1,4,1,2,null,null,null,null,null],
+          fill: false,
+          lineTension: 0
+        }, {
+          label: "Africa",
+          type: "line",
+          borderColor: "#f0ad4e",
+          data: [null,null,null,null,null,1,3,1,2,1],
+          fill: false,
+          lineTension: 0
+        },
+        {
+          label: "Africa",
+          type: "line",
+          borderColor: "rgb(0,0,0,0)",
+          data: [0,5],
+          fill: false
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Kargo Dağıtım'
+      },
+      legend: { display: false }
+    }
+});
 
 new Chart(document.getElementById("radar-chart"), {
     type: 'radar',
