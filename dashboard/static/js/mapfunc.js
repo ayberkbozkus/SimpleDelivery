@@ -113,6 +113,8 @@ function addDataLayer() {
         ]
     };
 
+    var route = JSON.parse(Get('https://leventguner.net/sd/path.json'));
+
     map.addSource('route', {
         'type': 'geojson',
         'data':
@@ -163,12 +165,15 @@ function addDataLayer() {
             'icon-ignore-placement': true
         }
     });
+    var route_len = route.features[0].geometry.coordinates.length;
+    var steps = route_len;
+    var anim_counter = 0;
 
     function animate() {
-// Update point geometry to a new position based on counter denoting
+// Update point geometry to a new position based on anim_counter denoting
 // the index to access the arc.
         point.features[0].geometry.coordinates =
-            route.features[0].geometry.coordinates[counter];
+            route.features[0].geometry.coordinates[anim_counter];
 
 // Calculate the bearing to ensure the icon is rotated to match the route arc
 // The bearing is calculate between the current point and the next point, except
@@ -176,12 +181,12 @@ function addDataLayer() {
         point.features[0].properties.bearing = turf.bearing(
             turf.point(
                 route.features[0].geometry.coordinates[
-                    counter >= steps ? counter - 1 : counter
+                    anim_counter >= steps ? anim_counter - 1 : anim_counter
                     ]
             ),
             turf.point(
                 route.features[0].geometry.coordinates[
-                    counter >= steps ? counter : counter + 1
+                    anim_counter >= steps ? anim_counter : anim_counter + 1
                     ]
             )
         );
@@ -190,11 +195,11 @@ function addDataLayer() {
         map.getSource('point').setData(point);
 
 // Request the next frame of animation so long the end has not been reached.
-        if (counter < steps) {
+        if (anim_counter < steps) {
             requestAnimationFrame(animate);
         }
 
-        counter = counter + 1;
+        anim_counter = anim_counter + 1;
     }
 
     document.getElementById('replay').addEventListener('click', function () {
@@ -204,15 +209,15 @@ function addDataLayer() {
 // Update the source layer
         map.getSource('point').setData(point);
 
-// Reset the counter
-        counter = 0;
+// Reset the anim_counter
+        anim_counter = 0;
 
 // Restart the animation.
-        animate(counter);
+        animate(anim_counter);
     });
 
 // Start the animation.
-    animate(counter);
+    animate(anim_counter);
 
 }
 
