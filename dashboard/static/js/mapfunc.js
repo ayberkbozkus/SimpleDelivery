@@ -1,8 +1,8 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoidG9wZ3VuIiwiYSI6ImNrYWZmZ2kwbzBzemEycG1iMXYxcWoxdWkifQ.Y2KVrAprIrtUhw4SQlW82w';
-var center = [29.0245, 41.1067];
+var center = [29.0308,40.9929];
 var map = new mapboxgl.Map({
     container: 'map',
-    zoom: 9.5,
+    zoom: 14,
     center: center,
     pitch: 60,
     bearing: -5,
@@ -117,8 +117,7 @@ function addDataLayer() {
 
     map.addSource('route', {
         'type': 'geojson',
-        'data':
-            'https://leventguner.net/sd/path.json'
+        'data': route
     });
 
     map.addSource('homes', {
@@ -135,8 +134,13 @@ function addDataLayer() {
     map.addLayer(
         {
             'id': 'delivery-points',
-            'type': 'circle',
+            'type': 'symbol',
             'source': 'homes',
+            'layout': {
+            'icon-image': 'town-hall-15',
+            'icon-allow-overlap': true,
+            'icon-ignore-placement': true
+        }
             // 'minzoom': 10,
         },
         //'waterway-label'
@@ -158,11 +162,12 @@ function addDataLayer() {
         'source': 'point',
         'type': 'symbol',
         'layout': {
-            'icon-image': 'airport-15',
+            'icon-image': 'shop-15',
             'icon-rotate': ['get', 'bearing'],
             'icon-rotation-alignment': 'map',
             'icon-allow-overlap': true,
-            'icon-ignore-placement': true
+            'icon-ignore-placement': true,
+
         }
     });
     var route_len = route.features[0].geometry.coordinates.length;
