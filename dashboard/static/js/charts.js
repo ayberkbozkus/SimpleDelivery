@@ -335,7 +335,7 @@ new Chart(document.getElementById("someChartArea"), {
 });
 
 
-var derece2data = JSON.parse(Get('http://160.75.154.58:5000/generalinfo'));
+var derece2data = JSON.parse(Get('#'));
 
 let derece2 = new Chart(pieChart1,
     {
@@ -348,9 +348,9 @@ let derece2 = new Chart(pieChart1,
                 'Teslim Edilememiş'
             ],
             datasets: [{
-                data: [derece2data.current_healthy,
-                    derece2data.current_risk,
-                    derece2data.current_sick],
+                data: [6034,
+                    2741,
+                    789],
                 backgroundColor: ['rgb(119,221,119)',
                     'rgb(255,210,97)',
                     'rgb(255,105,97)']
