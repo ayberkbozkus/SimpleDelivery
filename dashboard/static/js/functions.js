@@ -127,7 +127,7 @@ function circlePeople(areaid) {
 
     openRightMenu('content4');
 
-    var lo_url = 'http://160.75.154.58:5000/get_user_area?uid=' + areaid;
+    var lo_url = '#' + areaid;
     var area_info = JSON.parse(Get(lo_url));
 
     iconcolor(area_info.peopleNear, "nearPeople", "divnearPeople", 10, 20);

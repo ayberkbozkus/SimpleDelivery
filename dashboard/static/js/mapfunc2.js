@@ -65,7 +65,7 @@ map.on('load', function () {
     map.addSource('people', {
         'type': 'geojson',
         'data':
-            'http://160.75.154.58:5000/realdata'
+            '#'
     });
 //point
 map.addLayer(
